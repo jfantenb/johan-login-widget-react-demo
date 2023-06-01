@@ -13,6 +13,9 @@ import '@forgerock/login-widget/widget.css';
 function App() {
   // const [count, setCount] = useState(0)
 
+  // JFA: Log the current value used for the baseUrl
+  console.log("JFA: AMURL: " + import.meta.env.VITE_AMURL);
+
   // JFA: Create a constant to hold the User Info value returned
   const [userInfo, setUserInfo] = useState(null);
 
@@ -45,7 +48,6 @@ function App() {
     // JFA: Unsubsribe from the observable to avoid memory leaks at component mounts and unmounts
     const journeyEventsUnsub = journeyEvents.subscribe((event) => {
       console.log("JFA: === Begin ===")
-      console.log("JFA: AMURL: " + import.meta.env.VITE_AMURL);
       console.log(event);
       if (event.user.response) {
         console.log("JFA: User Response:")
